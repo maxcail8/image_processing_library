@@ -1,0 +1,7 @@
+Eseguire la libreria C in ambiente linux:
+
+-Mettere nella cartella img/original l'immagine a cui si vuole applicare filtri
+-Aprire il Makefile e mettere il nome dell'immagine nella variabile img1
+-Aprire il terminale ed eseguire "make"
+-Le nuove immagini sono in img/results
+-Eseguire "make clean" per eliminare tutte le cose precedenti

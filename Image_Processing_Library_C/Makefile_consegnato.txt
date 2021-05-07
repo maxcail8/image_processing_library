@@ -1,0 +1,26 @@
+
+# ***Created by Lohackers***
+#    @Massimo Cailotto: 880763
+#    @Giovanni Costa: 880892
+#    @Matteo Minardi: 880895
+#    @Andrea Munarin: 879607
+
+
+#VARIABILI
+inputMain=main_iplib.c
+outputMain=main_iplib
+
+#COMPILE
+compile: bmp.o ip_lib.o bmp.h ip_lib.h
+	gcc $(inputMain) bmp.o ip_lib.o -o $(outputMain) -Wall --ansi --pedantic -lm -g3 -O3 -fsanitize=address -fsanitize=undefined -std=gnu89 -Wextra 
+
+#DIPENDENZE
+ip_lib.o: ip_lib.c ip_lib.h bmp.h
+	gcc ip_lib.c -o ip_lib.o -c -Wall --ansi --pedantic -lm -g3 -O3 -fsanitize=address -fsanitize=undefined -std=gnu89 -Wextra
+
+bmp.o: bmp.c bmp.h
+	gcc bmp.c -o bmp.o -Wall -c 
+
+#CLEAN
+clean:
+	@rm -f bmp.o ip_lib.o $(outputMain)
